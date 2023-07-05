@@ -1,2 +1,2 @@
-import mongoose from "mongoose";
-import cors from "cors";
+import mongoose from 'mongoose'
+import cors from 'cors'
