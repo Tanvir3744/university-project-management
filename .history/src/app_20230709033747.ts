@@ -7,11 +7,11 @@ const app: Application = express()
 // using middleware here
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+
 
 
 // application routes
-app.use('/api/v1/users', userRouter)
+app.use('/api/v1/users', )
 
 
 app.get('/', (req: Request, res: Response) => {
