@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import app from './app'
 import config from './config'
-import  {logger, errorLogger}  from './shared/logger'
+import  {logger, errorlogger}  from './shared/logger'
 async function main() {
   try {
     await mongoose.connect(config.database_url as string)

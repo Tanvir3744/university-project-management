@@ -2,6 +2,7 @@ import { User } from "./user.model"
 import { IUser } from "./users.interface"
 import config from "../../../config/index"
 import { generateUserId } from "../../../utils/user.utils"
+import ApiError from "../../../errors/apiErrors"
 // create user service
 const createUser = async (user: IUser): Promise <IUser | null> => {
 
@@ -22,7 +23,7 @@ const createUser = async (user: IUser): Promise <IUser | null> => {
 
     // if the user throw eny error (validation)
     if (!createdUser) {
-        throw new Error("failed to create user");
+        throw new ApiError(400 , "failed to create user");
     }
 
     return createdUser;

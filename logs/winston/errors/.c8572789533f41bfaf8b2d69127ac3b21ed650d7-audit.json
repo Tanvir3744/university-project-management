@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 15
+    },
+    "auditLog": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\.c8572789533f41bfaf8b2d69127ac3b21ed650d7-audit.json",
+    "files": [
+        {
+            "date": 1689177098766,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-07-12-21-error.log",
+            "hash": "7a40a0819b3b7ab8472274d3c5e39c86ebc3a1d8f79969753ed27d9f3fdf5ef2"
+        }
+    ],
+    "hashType": "sha256"
+}

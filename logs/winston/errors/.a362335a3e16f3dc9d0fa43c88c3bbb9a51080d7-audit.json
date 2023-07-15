@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 15
+    },
+    "auditLog": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\.a362335a3e16f3dc9d0fa43c88c3bbb9a51080d7-audit.json",
+    "files": [
+        {
+            "date": 1689177179068,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-12-07-21-error.log",
+            "hash": "897ef775a3ce9152da30892a6da5ed63ec57e943269ed21ae91a5e72c8fa7728"
+        },
+        {
+            "date": 1689276163943,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-14-07-01-error.log",
+            "hash": "f39374534d0be649f6bcf7d7018b2fb9af141bc68040e04e25f3171cadd6924d"
+        },
+        {
+            "date": 1689452478522,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-16-07-02-error.log",
+            "hash": "5fa72e871be2caf78f4b1fec275c28668552d20180825f71a8462d384d5f12f6"
+        }
+    ],
+    "hashType": "sha256"
+}
