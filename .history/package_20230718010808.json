@@ -13,7 +13,7 @@
     
   },
   "author": "Biplob Hossen",
-  "license": "MIT",
+  "license": "Biplob hossens project",
   "lint-staged":{
     "src/**/*.ts": "yarn lint-prettier"
   },
