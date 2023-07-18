@@ -2,7 +2,8 @@ import {  RequestHandler } from 'express'
 import { UserService } from './user_service'
 
 const createUser: RequestHandler = async (req, res, next) => {
-  try {  
+  try {
+
 
     // grab data from server
     const { user } = req.body
