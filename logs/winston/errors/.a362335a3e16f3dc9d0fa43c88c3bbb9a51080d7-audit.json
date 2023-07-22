@@ -59,6 +59,21 @@
             "date": 1689690015667,
             "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-18-07-20-error.log",
             "hash": "8292b31888b6e7ffd00042a140342de939c85325a0b0be795b9b233ca995cbb0"
+        },
+        {
+            "date": 1689883457133,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-21-07-02-error.log",
+            "hash": "fe160c611c838c46d018461efee29bd254a1fe883b43a00601dfd9d4da04a45a"
+        },
+        {
+            "date": 1689886842842,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-21-07-03-error.log",
+            "hash": "42d5186ddfe578f52cc029a32b66a994028a2c11a73da05c4d0c6ff641f8f021"
+        },
+        {
+            "date": 1690034588148,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-22-07-20-error.log",
+            "hash": "45cc5bdb7069c1f8cd3bae08c982f1c8d6286e52fabe284529cbb9d6a283b4a1"
         }
     ],
     "hashType": "sha256"
