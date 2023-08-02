@@ -6,56 +6,6 @@
     "auditLog": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\.a362335a3e16f3dc9d0fa43c88c3bbb9a51080d7-audit.json",
     "files": [
         {
-            "date": 1689276163943,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-14-07-01-error.log",
-            "hash": "f39374534d0be649f6bcf7d7018b2fb9af141bc68040e04e25f3171cadd6924d"
-        },
-        {
-            "date": 1689452478522,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-16-07-02-error.log",
-            "hash": "5fa72e871be2caf78f4b1fec275c28668552d20180825f71a8462d384d5f12f6"
-        },
-        {
-            "date": 1689518632201,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-16-07-20-error.log",
-            "hash": "34546c4d27b9a379bd588bd49179b80036a4d1b7cb91f1f8ccc6691e346f4096"
-        },
-        {
-            "date": 1689519992539,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-16-07-21-error.log",
-            "hash": "5f4f11a53c821e359f709c41c57ea5b38fdd854d059f3f0820a205f74b22ae10"
-        },
-        {
-            "date": 1689531717592,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-17-07-00-error.log",
-            "hash": "30b598264e921ae74f249197fe2bb6ccee2c6557e6cfd1f8fad787f4fc1e6e4f"
-        },
-        {
-            "date": 1689535768740,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-17-07-01-error.log",
-            "hash": "7a73ea7db5089332989ebf5d85d347d442b71a8fd82fe004286aa8aa6ed0642e"
-        },
-        {
-            "date": 1689537681273,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-17-07-02-error.log",
-            "hash": "c07825256084b33cde419b2a130cd41f31bbd725dd5975e8680aae3a92a80fcd"
-        },
-        {
-            "date": 1689619234849,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-18-07-00-error.log",
-            "hash": "7ab46a7036d348e695eccaaa2f0f183bdcb2674441206adedd13d0fa7d64e88a"
-        },
-        {
-            "date": 1689626488186,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-18-07-02-error.log",
-            "hash": "adb9488e720962f54e8a4aadd4a18b1c0ef27c27d62a3fedfafc177b019140f5"
-        },
-        {
-            "date": 1689690015667,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-18-07-20-error.log",
-            "hash": "8292b31888b6e7ffd00042a140342de939c85325a0b0be795b9b233ca995cbb0"
-        },
-        {
             "date": 1689883457133,
             "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-21-07-02-error.log",
             "hash": "fe160c611c838c46d018461efee29bd254a1fe883b43a00601dfd9d4da04a45a"
@@ -109,6 +59,46 @@
             "date": 1690520430126,
             "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-28-07-11-error.log",
             "hash": "4cac81d188726181a13ac3a0ad72fb79a2e93a12857143d112885a70bea6f450"
+        },
+        {
+            "date": 1690651249147,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-29-07-23-error.log",
+            "hash": "d74a3e5373081e94e4bbc48c8f669eecf6361d5bdb92444d275b3e0b65590fe7"
+        },
+        {
+            "date": 1690653611665,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-30-07-00-error.log",
+            "hash": "b5cd93da55764147f41ea6f5f34556b07cdf69e5f64f883713bd9012b46b35cc"
+        },
+        {
+            "date": 1690659418833,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-30-07-01-error.log",
+            "hash": "96cfdbda69e559d7928ad21fd8304899c274927a12efb9d3e484bf0e8b1ee96a"
+        },
+        {
+            "date": 1690661122043,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-30-07-02-error.log",
+            "hash": "9aad6ef17049ad7a3c5d2230c3272efcdc7e4d6b0dae5dc02ddeaaaf44490434"
+        },
+        {
+            "date": 1690830074166,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-01-08-01-error.log",
+            "hash": "501720b85a6594836c2a106d0f3b82d8948ba417b0229717a4527c96c7dfb57a"
+        },
+        {
+            "date": 1690834219154,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-01-08-02-error.log",
+            "hash": "863f0bc0be15bb095c0b808aaca7b24fb4bb38b6e0cd161ee3aa70117baf606c"
+        },
+        {
+            "date": 1690917808998,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-02-08-01-error.log",
+            "hash": "5a6c65d02513c875ad16a0aac3abd145179074328d95cd05a18ef262566925c8"
+        },
+        {
+            "date": 1690997752627,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2023-02-08-23-error.log",
+            "hash": "fcf9a81514d3e7d646e9bfbf2b6746b16d2cc91f4db8313975a210550e86dbb0"
         }
     ],
     "hashType": "sha256"
