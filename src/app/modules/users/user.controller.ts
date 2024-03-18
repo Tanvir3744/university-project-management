@@ -11,7 +11,6 @@ const createStudent = catchAsync(async (req: Request, res: Response) => {
   
   // grab users data from server
   const {student, ...userData } = req.body
-  console.log(student)
   const result = await UserService.createStudent(student, userData)
   console.log(result)
   
