@@ -12,7 +12,6 @@ export type UserName = {
 export type IFaculty = {
     id: string, 
     name: UserName,
-    email: string, 
     gender?: 'male' | 'female', 
     dateOfBirth: string, 
     contactNo: string, 
