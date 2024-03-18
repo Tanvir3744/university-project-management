@@ -38,8 +38,8 @@ export const findLastAdminId = async () => {
 }
 
 export const generateAdminId = async () => {
-    const currentAdminId = await findLastFacultyId() || String(0).padStart(5, "0");
-    let incrementId = parseInt(currentAdminId + 1).toString().padStart(5, '0');
+    const currentFacultyId = await findLastFacultyId() || String(0).padStart(5, "0");
+    let incrementId = parseInt(currentFacultyId + 1).toString().padStart(5, '0');
     incrementId = `F${incrementId}`;
    /*  console.log(incrementId) */
     return incrementId;

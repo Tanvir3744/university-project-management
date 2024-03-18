@@ -95,7 +95,7 @@ const createStudent = async (
 
 }
 
-const createAdmin = async (user: IUser, admin: IAdmin)   => {
+const createAdmin = async (user: IUser, admin: IAdmin) : Promise<IUser, null>  => {
   // if admin does not provide any password then set default password 
   if (!user.password) {
     user.password = config.default_admin_pass as string;
@@ -127,32 +127,13 @@ const createAdmin = async (user: IUser, admin: IAdmin)   => {
     // create user as admin
     const createNewUser = await User.create([user], { session });
 
-    if (!createNewUser.length) {
-      throw new ApiError(BAD_REQUEST, "Failed to create user");
-    }
-
-    //push users and user as admin data into newUserallData array;
-    newUserAllData = createNewUser[0];
-
-    // commit and stop transaction;
-    await session.commitTransaction();
-    await session.endSession();
+    if(!create)
     
   } catch (error) {
-    await session.abortTransaction();
-    await session.endSession();
-    throw error;
+     console.log(error)
   }
 
-  //populate all data from admin 
-  if (newUserAllData) {
-    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
-      path: 'admin',
-      populate: [
-        {path: 'managementDepartment'}
-      ]
-    })
-  }
+
 }
 export const UserService = {
   createStudent,

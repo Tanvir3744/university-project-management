@@ -1,16 +1,13 @@
 import { User } from './user.model'
 import { IUser } from './users.interface'
 import config from '../../../config/index'
-import { generateAdminId, generateStudentId } from '../../../utils/user.utils'
+import { generateStudentId } from '../../../utils/user.utils'
 import ApiError from '../../../errors/apiErrors'
 import { IStudent } from '../student/student.interface'
 import { AcademicSemester } from '../academic-semester/academic-semester.models'
 import mongoose from 'mongoose'
 import { Student } from '../student/student.model'
-import httpStatus, { BAD_REQUEST } from 'http-status'
-import { IAcademicSemester } from '../academic-semester/academic-semester.interface'
-import { IAdmin } from '../admin/admin.interface'
-import { Admin } from '../admin/admin.models'
+import httpStatus from 'http-status'
 // create user service
 const createStudent = async (
   student: IStudent,
@@ -35,7 +32,7 @@ const createStudent = async (
     session.startTransaction()
 
     //generate student id ;
-    const id = await generateStudentId(academic_semester as IAcademicSemester)
+    const id = await generateStudentId(academic_semester)
     user.id = id
     student.id = id
 
@@ -90,71 +87,20 @@ const createStudent = async (
       ],
     })
   }
+  
+console.log(newUserAllData?.id, 'this is new users all data id')
 
   return newUserAllData
 
+  /*   // create user into database;
+  const createdUser = await User.create(user)
+  // if the user throw eny error (validation)
+  if (!createdUser) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'failed to create user')
+  }
+  return createdUser */
 }
 
-const createAdmin = async (user: IUser, admin: IAdmin)   => {
-  // if admin does not provide any password then set default password 
-  if (!user.password) {
-    user.password = config.default_admin_pass as string;
-  }
-
-  // set user role as admin while creating admin as user
-  user.role = 'admin';
-
-  let newUserAllData = null;
-  const session = await mongoose.startSession();
-  try {
-    session.startTransaction();
-
-    //generate admin Id; 
-    const AdminId = await generateAdminId();
-    user.id = AdminId;
-    admin.id = AdminId
-
-
-    // create new admin 
-    const createNewAdmin = await Admin.create([admin], { session });
-
-    if (!createNewAdmin.length) {
-      throw new ApiError(BAD_REQUEST, 'Failed to create admin');
-    }
-
-    user.admin = createNewAdmin[0]._id;
-
-    // create user as admin
-    const createNewUser = await User.create([user], { session });
-
-    if (!createNewUser.length) {
-      throw new ApiError(BAD_REQUEST, "Failed to create user");
-    }
-
-    //push users and user as admin data into newUserallData array;
-    newUserAllData = createNewUser[0];
-
-    // commit and stop transaction;
-    await session.commitTransaction();
-    await session.endSession();
-    
-  } catch (error) {
-    await session.abortTransaction();
-    await session.endSession();
-    throw error;
-  }
-
-  //populate all data from admin 
-  if (newUserAllData) {
-    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
-      path: 'admin',
-      populate: [
-        {path: 'managementDepartment'}
-      ]
-    })
-  }
-}
 export const UserService = {
   createStudent,
-  createAdmin
 }

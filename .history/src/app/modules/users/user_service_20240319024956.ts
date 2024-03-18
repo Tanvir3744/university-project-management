@@ -95,7 +95,7 @@ const createStudent = async (
 
 }
 
-const createAdmin = async (user: IUser, admin: IAdmin)   => {
+const createAdmin = async (user: IUser, admin: IAdmin) : Promise<IUser, null>  => {
   // if admin does not provide any password then set default password 
   if (!user.password) {
     user.password = config.default_admin_pass as string;
@@ -146,12 +146,7 @@ const createAdmin = async (user: IUser, admin: IAdmin)   => {
 
   //populate all data from admin 
   if (newUserAllData) {
-    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
-      path: 'admin',
-      populate: [
-        {path: 'managementDepartment'}
-      ]
-    })
+    newUserAllData = await User.findOne()
   }
 }
 export const UserService = {

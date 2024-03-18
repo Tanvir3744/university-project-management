@@ -95,7 +95,7 @@ const createStudent = async (
 
 }
 
-const createAdmin = async (user: IUser, admin: IAdmin)   => {
+const createAdmin = async (user: IUser, admin: IAdmin) : Promise<IUser | null>  => {
   // if admin does not provide any password then set default password 
   if (!user.password) {
     user.password = config.default_admin_pass as string;
