@@ -30,3 +30,17 @@ export const generateFacultyId = async () => {
    /*  console.log(incrementId) */
     return incrementId;
 }
+
+//creating admin id; 
+export const findLastAdminId = async () => {
+    const lastFaculty = await User.findOne({role: "admin"}, { id: 1, _id: 0 }).sort({ createdAt: -1 }).lean();
+    return lastFaculty?.id ? lastFaculty.id.substring(4) : undefined;
+}
+
+export const generateFacultyId = async () => {
+    const currentFacultyId = await findLastFacultyId() || String(0).padStart(5, "0");
+    let incrementId = parseInt(currentFacultyId + 1).toString().padStart(5, '0');
+    incrementId = `F${incrementId}`;
+   /*  console.log(incrementId) */
+    return incrementId;
+}
