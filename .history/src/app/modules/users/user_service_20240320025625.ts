@@ -30,7 +30,7 @@ const createStudent = async (
   }
 
   //hash the users password;
-  user.password = await bcrypt.hash(user.password, Number(config.bcrypt_salt_round));
+  user.password = await bcrypt.hash(user.password, config.bcrypt_salt_round);
   user.role = 'student'
   const academic_semester = await AcademicSemester.findById(
     student.academicSemester
@@ -105,8 +105,6 @@ const createAdmin = async (user: IUser, admin: IAdmin) => {
   if (!user.password) {
     user.password = config.default_admin_pass as string
   }
-  // has admin users password;
-  user.password = await bcrypt.hash(user.password, Number(config.bcrypt_salt_round));
 
   // set user role as admin while creating admin as user
   user.role = 'admin'
