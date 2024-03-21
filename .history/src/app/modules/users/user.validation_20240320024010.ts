@@ -228,6 +228,5 @@ const createAdminZodSchema = z.object({
 
 export const userValidation = {
   createUserZodSchema,
-  createFacultyZodSchema,
-  createAdminZodSchema
+  createFacultyZodSchema
 }

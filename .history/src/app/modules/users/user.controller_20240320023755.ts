@@ -29,6 +29,7 @@ const createFaculty = catchAsync(async (req: Request, res: Response) => {
   // grab users data from server
   const {faculty, ...userData } = req.body
   const result = await UserService.createStudent(faculty, userData)
+  console.log(result)
   
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -44,6 +45,7 @@ const createAdmin = catchAsync(async (req: Request, res: Response) => {
   // grab users data from server
   const {admin, ...userData } = req.body
   const result = await UserService.createStudent(admin, userData)
+  console.log(result)
   
   sendResponse(res, {
     statusCode: httpStatus.OK,
