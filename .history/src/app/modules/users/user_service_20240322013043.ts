@@ -17,6 +17,7 @@ import { IAdmin } from '../admin/admin.interface'
 import { Admin } from '../admin/admin.models'
 import { IFaculty } from '../faculty/faculty.interface'
 import { Faculty } from '../faculty/faculty.models'
+import bcrypt from 'bcrypt'
 // create user service
 const createStudent = async (
   student: IStudent,

@@ -1,5 +1,8 @@
 import { Schema, model } from 'mongoose'
 import { IUser, UserModel } from './users.interface'
+import { NextFunction } from 'express';
+import bcrypt from "bcrypt";
+import config from '../../../config';
 
 export const userSchema = new Schema<IUser>(
   {
@@ -20,9 +23,9 @@ export const userSchema = new Schema<IUser>(
       type: Schema.Types.ObjectId,
       ref: 'Student',
     },
-    facutly: {
+    faculty: {
       type: Schema.Types.ObjectId,
-      ref: 'FacultyModel',
+      ref: 'Faculty',
     },
     admin: {
       type: Schema.Types.ObjectId,
@@ -35,6 +38,12 @@ export const userSchema = new Schema<IUser>(
       virtuals: true,
     },
   }
-)
+);
+
+// hash password with prehook;
+userSchema.pre("save", async function (next) {
+  this.password = await bcrypt.hash(this.password, Number(config.bcrypt_salt_round));
+  next();
+})
 
 export const User = model<IUser, UserModel>('User', userSchema)

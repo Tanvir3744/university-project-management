@@ -17,6 +17,7 @@ import { IAdmin } from '../admin/admin.interface'
 import { Admin } from '../admin/admin.models'
 import { IFaculty } from '../faculty/faculty.interface'
 import { Faculty } from '../faculty/faculty.models'
+import bcrypt from 'bcrypt'
 // create user service
 const createStudent = async (
   student: IStudent,
@@ -160,6 +161,7 @@ const createFaculty = async (user: IUser, faculty: IFaculty) => {
   if (!user.password) {
     user.password = config.deafult_faculty_pass as string
   }
+
 
   //set role;
   user.role = 'faculty'

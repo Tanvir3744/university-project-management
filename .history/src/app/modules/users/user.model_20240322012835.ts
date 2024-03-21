@@ -1,5 +1,7 @@
 import { Schema, model } from 'mongoose'
 import { IUser, UserModel } from './users.interface'
+import { NextFunction } from 'express';
+import bcrypt from "bcrypt";
 
 export const userSchema = new Schema<IUser>(
   {
@@ -35,6 +37,12 @@ export const userSchema = new Schema<IUser>(
       virtuals: true,
     },
   }
-)
+);
+
+// hash password with prehook;
+userSchema.pre('save', async function (next: NextFunction) {
+  this.password = await
+  next();
+})
 
 export const User = model<IUser, UserModel>('User', userSchema)
