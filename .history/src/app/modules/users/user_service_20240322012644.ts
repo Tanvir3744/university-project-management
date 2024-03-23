@@ -17,6 +17,7 @@ import { IAdmin } from '../admin/admin.interface'
 import { Admin } from '../admin/admin.models'
 import { IFaculty } from '../faculty/faculty.interface'
 import { Faculty } from '../faculty/faculty.models'
+import bcrypt from 'bcrypt'
 // create user service
 const createStudent = async (
   student: IStudent,
@@ -28,6 +29,11 @@ const createStudent = async (
     user.password = config.default_student_pass as string
   }
 
+  //hash the users password;
+  user.password = await bcrypt.hash(
+    user.password,
+    Number(config.bcrypt_salt_round)
+  )
   user.role = 'student'
   const academic_semester = await AcademicSemester.findById(
     student.academicSemester
@@ -45,7 +51,7 @@ const createStudent = async (
     user.id = id
     student.id = id
 
-    //creating new student into database using mongoose session and transaction rollback
+    //creating new student into database using session storage
     const createNewStudent = await Student.create([student], { session })
 
     //if createnewstudent is empty will throw this error...
@@ -102,7 +108,11 @@ const createAdmin = async (user: IUser, admin: IAdmin) => {
   if (!user.password) {
     user.password = config.default_admin_pass as string
   }
-  
+  // has admin users password;
+  user.password = await bcrypt.hash(
+    user.password,
+    Number(config.bcrypt_salt_round)
+  )
 
   // set user role as admin while creating admin as user
   user.role = 'admin'
@@ -155,11 +165,16 @@ const createAdmin = async (user: IUser, admin: IAdmin) => {
 }
 
 // const create faculty as user
-const createFaculty = async ( faculty: IFaculty, user: IUser) => {
+const createFaculty = async (user: IUser, faculty: IFaculty) => {
   // if the password does not set into the faculty
   if (!user.password) {
     user.password = config.deafult_faculty_pass as string
   }
+  // hash faculty users pasword
+  user.password = await bcrypt.hash(
+    user.password,
+    Number(config.bcrypt_salt_round)
+  )
 
   //set role;
   user.role = 'faculty'
@@ -167,7 +182,7 @@ const createFaculty = async ( faculty: IFaculty, user: IUser) => {
   let newUserAllData = null
   const session = await mongoose.startSession()
   try {
-    session.startTransaction()
+    await session.startTransaction()
 
     // generate faculty id and set it into the user as well
     const facultyNewId = await generateFacultyId()

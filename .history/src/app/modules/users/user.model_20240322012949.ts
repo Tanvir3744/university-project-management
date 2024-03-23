@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose'
 import { IUser, UserModel } from './users.interface'
+import { NextFunction } from 'express';
 import bcrypt from "bcrypt";
 import config from '../../../config';
 

@@ -17,6 +17,7 @@ import { IAdmin } from '../admin/admin.interface'
 import { Admin } from '../admin/admin.models'
 import { IFaculty } from '../faculty/faculty.interface'
 import { Faculty } from '../faculty/faculty.models'
+import bcrypt from 'bcrypt'
 // create user service
 const createStudent = async (
   student: IStudent,
@@ -45,7 +46,7 @@ const createStudent = async (
     user.id = id
     student.id = id
 
-    //creating new student into database using mongoose session and transaction rollback
+    //creating new student into database using session storage
     const createNewStudent = await Student.create([student], { session })
 
     //if createnewstudent is empty will throw this error...
@@ -155,7 +156,7 @@ const createAdmin = async (user: IUser, admin: IAdmin) => {
 }
 
 // const create faculty as user
-const createFaculty = async ( faculty: IFaculty, user: IUser) => {
+const createFaculty = async (user: IUser, faculty: IFaculty) => {
   // if the password does not set into the faculty
   if (!user.password) {
     user.password = config.deafult_faculty_pass as string
@@ -167,7 +168,7 @@ const createFaculty = async ( faculty: IFaculty, user: IUser) => {
   let newUserAllData = null
   const session = await mongoose.startSession()
   try {
-    session.startTransaction()
+    await session.startTransaction()
 
     // generate faculty id and set it into the user as well
     const facultyNewId = await generateFacultyId()

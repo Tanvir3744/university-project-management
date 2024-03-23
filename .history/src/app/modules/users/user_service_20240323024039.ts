@@ -167,7 +167,7 @@ const createFaculty = async ( faculty: IFaculty, user: IUser) => {
   let newUserAllData = null
   const session = await mongoose.startSession()
   try {
-    session.startTransaction()
+    await session.startTransaction()
 
     // generate faculty id and set it into the user as well
     const facultyNewId = await generateFacultyId()

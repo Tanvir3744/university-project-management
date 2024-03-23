@@ -4,7 +4,8 @@ import { User } from '../app/modules/users/user.model'
 // Student ID
 export const findLastStudentId = async ()=> {
   const lastStudent = await User.findOne({ role: 'student', }, { id: 1, _id: 0 }).sort({ createdAt: -1, }).lean();
-  return lastStudent?.id ? lastStudent?.id.substring(4) : undefined
+  console.log(lastStudent)
+  return lastStudent?.id ? lastStudent.id.substring(4) : undefined
 }
 
 export const generateStudentId = async (
@@ -12,7 +13,7 @@ export const generateStudentId = async (
 ): Promise<string> => {
   const currentId =(await findLastStudentId()) || (0).toString().padStart(5, '0'); 
   let incrementedId = (parseInt(currentId) + 1).toString().padStart(5, '0');
-  incrementedId = `s-${academicSemester.code}${incrementedId}`;
+  incrementedId = `${academicSemester.year}${academicSemester.code}${incrementedId}`;
   return incrementedId;
 };
 

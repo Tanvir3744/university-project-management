@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose'
 import { IUser, UserModel } from './users.interface'
+import { NextFunction } from 'express';
 import bcrypt from "bcrypt";
 import config from '../../../config';
 
@@ -40,7 +41,7 @@ export const userSchema = new Schema<IUser>(
 );
 
 // hash password with prehook;
-userSchema.pre("save", async function (next) {
+userSchema.pre('save', async function (next: NextFunction) {
   this.password = await bcrypt.hash(this.password, Number(config.bcrypt_salt_round));
   next();
 })
