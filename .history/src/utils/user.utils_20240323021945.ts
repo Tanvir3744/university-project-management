@@ -2,19 +2,35 @@ import { IAcademicSemester } from '../app/modules/academic-semester/academic-sem
 import { User } from '../app/modules/users/user.model'
 
 // Student ID
-export const findLastStudentId = async ()=> {
-  const lastStudent = await User.findOne({ role: 'student', }, { id: 1, _id: 0 }).sort({ createdAt: -1, }).lean();
-  return lastStudent?.id ? lastStudent?.id.substring(4) : undefined
+export const findLastStudentId = async (): Promise<string | undefined> => {
+  const lastStudent = await User.findOne(
+    {
+      role: 'student',
+    },
+    { id: 1, _id: 0 }
+  )
+    .sort({
+      createdAt: -1,
+    })
+    .lean()
+
+  return lastStudent?.id ? lastStudent.id.substring(4) : undefined
 }
 
 export const generateStudentId = async (
   academicSemester: IAcademicSemester
 ): Promise<string> => {
-  const currentId =(await findLastStudentId()) || (0).toString().padStart(5, '0'); 
-  let incrementedId = (parseInt(currentId) + 1).toString().padStart(5, '0');
-  incrementedId = `s-${academicSemester.code}${incrementedId}`;
-  return incrementedId;
-};
+  const currentId =
+    (await findLastStudentId()) || (0).toString().padStart(5, '0') //00000
+  //increment by 1
+  let incrementedId = (parseInt(currentId) + 1).toString().padStart(5, '0')
+  //20 25
+  incrementedId = `${academicSemester.year.toString()}${
+    academicSemester.code
+  }${incrementedId}`
+
+  return incrementedId
+}
 
 // Faculty ID
 export const findLastFacultyId = async (): Promise<string | undefined> => {
@@ -38,13 +54,13 @@ export const generateFacultyId = async (): Promise<string> => {
 
 // Admin ID
 export const findLastAdminId = async (): Promise<string | undefined> => {
-  const lastAdmin = await User.findOne({ role: 'admin' }, { id: 1, _id: 0 })
+  const lastFaculty = await User.findOne({ role: 'admin' }, { id: 1, _id: 0 })
     .sort({
       createdAt: -1,
     })
     .lean()
 
-  return lastAdmin?.id ? lastAdmin.id.substring(2) : undefined
+  return lastFaculty?.id ? lastFaculty.id.substring(2) : undefined
 }
 
 export const generateAdminId = async (): Promise<string> => {

@@ -12,7 +12,8 @@ export const generateStudentId = async (
 ): Promise<string> => {
   const currentId =(await findLastStudentId()) || (0).toString().padStart(5, '0'); 
   let incrementedId = (parseInt(currentId) + 1).toString().padStart(5, '0');
-  incrementedId = `s-${academicSemester.code}${incrementedId}`;
+  incrementedId = `s-${academicSemester.year}${academicSemester.code}${incrementedId}`;
+  console.log(incrementedId)
   return incrementedId;
 };
 

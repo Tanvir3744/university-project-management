@@ -155,7 +155,7 @@ const createAdmin = async (user: IUser, admin: IAdmin) => {
 }
 
 // const create faculty as user
-const createFaculty = async ( faculty: IFaculty, user: IUser) => {
+const createFaculty = async (user: IUser, faculty: IFaculty) => {
   // if the password does not set into the faculty
   if (!user.password) {
     user.password = config.deafult_faculty_pass as string
@@ -167,7 +167,7 @@ const createFaculty = async ( faculty: IFaculty, user: IUser) => {
   let newUserAllData = null
   const session = await mongoose.startSession()
   try {
-    session.startTransaction()
+    await session.startTransaction()
 
     // generate faculty id and set it into the user as well
     const facultyNewId = await generateFacultyId()
