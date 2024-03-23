@@ -49,6 +49,16 @@
             "date": 1711221925986,
             "name": "E:\\Projects and others\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2024-24-03-01-error.log",
             "hash": "d38906af3e128e2eed0092d420e7e6ad49ce8cb0a5aedac7b33b1cb5cd229cb4"
+        },
+        {
+            "date": 1711227229599,
+            "name": "E:\\Projects and others\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2024-24-03-02-error.log",
+            "hash": "d9c2c8fc6bd8987c35ff2d9e8434dc8135607df790953197f0c84ff5bb207994"
+        },
+        {
+            "date": 1711227940774,
+            "name": "E:\\Projects and others\\backend\\auth-service-backend\\logs\\winston\\errors\\university-2024-24-03-03-error.log",
+            "hash": "4d53740cf60d6c7640665c5fcc1477867e92c053ff46019e913e97afe7a49274"
         }
     ],
     "hashType": "sha256"
