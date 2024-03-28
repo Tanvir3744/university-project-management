@@ -9,8 +9,7 @@ const loginUser = async (payload: ILoginUser) => {
     // if the user is exist or not ;
     const isUserExist = await User.findOne({id}, {id:1,password: 1, needsPasswordChange:1})
     return {
-        isUserExist,
-        password
+        console.log(isUserExist, password)
     }
 }
 
