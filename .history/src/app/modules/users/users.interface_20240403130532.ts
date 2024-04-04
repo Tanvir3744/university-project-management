@@ -11,9 +11,9 @@ export type IUser = {
   admin?: Types.ObjectId 
 }
 
-export type IUserMethods = { 
-  isUserExist(id: string): Promise<Partial<IUser | null>>;
-  isPasswordMatched(givenPassword:string, savedPassword: string): Promise<boolean>
+interface IUserMethods { 
+  isUserExist(id: string): Promise<boolean>;
+  isPasswordMatched(givenPassword, savedPassword): Promise<boolean>
 }
 
 export type UserModel = Model<IUser, Record<string, unknown>, IUserMethods >

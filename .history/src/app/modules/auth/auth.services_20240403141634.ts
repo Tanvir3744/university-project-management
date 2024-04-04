@@ -21,9 +21,7 @@ const loginUser = async (payload: ILoginUser) => {
 
     // create jwt token 
 
-    return {
-        isUserExist
-    }
+    return {}
 }
 
 export const AuthService = {

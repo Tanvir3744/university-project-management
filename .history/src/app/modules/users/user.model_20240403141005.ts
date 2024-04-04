@@ -51,8 +51,8 @@ userSchema.methods.isUserExist = async function (id: string): Promise<Partial<IU
 }
 
 // is password matched to others
-userSchema.methods.isPasswordMatched = async function (givenPassword: string, savedPassword: string) {
-  return await bcrypt.compare(givenPassword, savedPassword);
+userSchema.methods.isPasswordMatched = async function () {
+  
 }
 
 

@@ -2,6 +2,7 @@ import { NOT_FOUND, UNAUTHORIZED } from "http-status";
 import ApiError from "../../../errors/apiErrors";
 import { User } from "../users/user.model";
 import { ILoginUser } from "./auth.interface"
+import bcrypt from 'bcrypt'
 
 
 const loginUser = async (payload: ILoginUser) => {
@@ -15,15 +16,13 @@ const loginUser = async (payload: ILoginUser) => {
     }
 
     // if the password does not matched to each other
-    if (isUserExist.password && !user.isPasswordMatched(password, isUserExist?.password)) {
+    if (!user.isPasswordMatched(password, isUserExist?.password)) {
         throw new ApiError(UNAUTHORIZED, 'Password is incorrect');
     };
 
     // create jwt token 
 
-    return {
-        isUserExist
-    }
+    return {}
 }
 
 export const AuthService = {

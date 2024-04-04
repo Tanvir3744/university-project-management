@@ -22,7 +22,7 @@ const loginUser = async (payload: ILoginUser) => {
     // create jwt token 
 
     return {
-        isUserExist
+        isUserExist.needsPasswordChanged
     }
 }
 

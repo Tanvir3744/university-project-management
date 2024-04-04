@@ -12,7 +12,7 @@ export type IUser = {
 }
 
 export type IUserMethods = { 
-  isUserExist(id: string): Promise<Partial<IUser | null>>;
+  isUserExist(id: string): Promise<Partial<IUser>>;
   isPasswordMatched(givenPassword:string, savedPassword: string): Promise<boolean>
 }
 

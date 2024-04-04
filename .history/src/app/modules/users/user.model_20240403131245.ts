@@ -44,17 +44,6 @@ export const userSchema = new Schema<IUser,Record<string,unknown>, IUserMethods>
   }
 );
 
-// is user exist in the user model 
-userSchema.methods.isUserExist = async function (id: string): Promise<Partial<IUser | null>>{
-  const user  = await User.findOne({ id }, { id: 1, password: 1, needsPasswordChange: 1 });
-  return user;
-}
-
-// is password matched to others
-userSchema.methods.isPasswordMatched = async function (givenPassword: string, savedPassword: string) {
-  return await bcrypt.compare(givenPassword, savedPassword);
-}
-
 
 // hash password with prehook;
 userSchema.pre("save", async function (next) {

@@ -2,6 +2,7 @@ import { NOT_FOUND, UNAUTHORIZED } from "http-status";
 import ApiError from "../../../errors/apiErrors";
 import { User } from "../users/user.model";
 import { ILoginUser } from "./auth.interface"
+import bcrypt from 'bcrypt'
 
 
 const loginUser = async (payload: ILoginUser) => {
@@ -21,9 +22,7 @@ const loginUser = async (payload: ILoginUser) => {
 
     // create jwt token 
 
-    return {
-        isUserExist
-    }
+    return {}
 }
 
 export const AuthService = {

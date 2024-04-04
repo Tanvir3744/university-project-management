@@ -3,7 +3,6 @@ import cors from 'cors'
 import globalErrorHandler from './app/middlewares/globalErrorHandler'
 import mainRouter from './app/routes'
 import httpStatus from 'http-status'
-import { generateFacultyId } from './utils/user.utils'
 
 const app: Application = express()
 
@@ -33,7 +32,7 @@ app.use((req:Request, res:Response, next:NextFunction) => {
       message: "API not found !",
     }]
   }),
-    next();
+  
 })
 
 //global error handler
