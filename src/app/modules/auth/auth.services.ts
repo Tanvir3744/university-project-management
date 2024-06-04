@@ -28,7 +28,7 @@ const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   // destructured data from isUserExist
   const { id: userId, role, needsPasswordChange } = isUserExist
 
-  // create jwt token (access token and refresh token );
+  // create jwt token (access token and refresh token ); -> follow jwt documentation...
   const accessToken = jwtHelpers.createToken(
     { id: userId, role: role },
     config.jwt.secret as Secret,
