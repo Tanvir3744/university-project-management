@@ -102,7 +102,7 @@ const changePassword = async (payload:IChangePassword, user:JwtPayload | null) :
   }
 
   // hash password before saving
-  const newHashPassword = await bcrypt.hash(newPassword, Number(config.bcrypt_salt_round));
+  const newHashPassword = await bcrypt.hash(newPassword, config.bcrypt_salt_round as string);
 
   const query = { id: userInstance.id };
 
@@ -114,6 +114,8 @@ const changePassword = async (payload:IChangePassword, user:JwtPayload | null) :
 
   await User.findOneAndUpdate(query, updatedData)
 
+  
+  return {}
 }
 
 export const AuthService = {

@@ -1,4 +1,4 @@
-import { BAD_GATEWAY, FORBIDDEN, NOT_FOUND, UNAUTHORIZED } from 'http-status'
+import { FORBIDDEN, NOT_FOUND, UNAUTHORIZED } from 'http-status'
 import ApiError from '../../../errors/apiErrors'
 import { User } from '../users/user.model'
 import { IChangePassword, ILoginUser, ILoginUserResponse, IRefreshTokenResponse } from './auth.interface'
@@ -6,7 +6,6 @@ import config from '../../../config'
 import { jwtHelpers } from '../../../helper/jwtHelpers'
 import { JwtPayload, Secret } from 'jsonwebtoken'
 import jwt from 'jsonwebtoken'
-import bcrypt from 'bcrypt'
 
 const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   const { id, password } = payload
@@ -83,37 +82,8 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
 
 
 
-const changePassword = async (payload:IChangePassword, user:JwtPayload | null) : Promise<void> => {
-  const { oldPassword, newPassword } = payload;
-
-  //check the user is exist or not ;
-  const userInstance = new User();
-  const isUserExist = await userInstance.isUserExist(user?.userId)
-  
-
-  // checking user
-  if (!isUserExist) {
-    throw new ApiError(BAD_GATEWAY,"User does not exist")
-  }
-
-  // checking old password
-  if (!isUserExist.password && !(await userInstance.isPasswordMatched(oldPassword, isUserExist.password as string))) {
-    throw new ApiError(UNAUTHORIZED, "old password is incorrect")
-  }
-
-  // hash password before saving
-  const newHashPassword = await bcrypt.hash(newPassword, Number(config.bcrypt_salt_round));
-
-  const query = { id: userInstance.id };
-
-  const updatedData = {
-    password: newHashPassword, 
-    needsPasswordChange: false, 
-    passwordChangedAt: new Date(),
-  }
-
-  await User.findOneAndUpdate(query, updatedData)
-
+const changePassword = async (payload:IChangePassword, user:JwtPayload) => {
+  const {oldPassword, newPassword} = payload;
 }
 
 export const AuthService = {

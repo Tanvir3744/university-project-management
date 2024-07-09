@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express'
+import { Request, Response } from 'express'
 import catchAsync from '../../../shared/catchAsync'
 import sendResponse from '../../../shared/sendResponse'
 import httpStatus, { OK } from 'http-status'
@@ -53,15 +53,14 @@ const changePassword = catchAsync(async (req: Request, res: Response, next: Next
   // take the user from the request that we've custom made
   const user = req.user;
   const { ...passwordData } = req.body;
-  const result = await AuthService.changePassword(passwordData, user);
+  const result = await AuthService.changePassword(passwordData);
 
   sendResponse(res, {
     statusCode: OK,
-    success: true,
-    message: "Password has been changed!",
+    success: true, 
+    message: "Password has been changed!", 
     data: result
-  });
-  next()
+  })
 })
 
 export const AuthLoginController = {
